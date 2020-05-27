@@ -10,10 +10,10 @@ const CardContainerSection = styled.div`
 
 const CardsSection = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const TitleDiv = styled.div`
-  margin: 5px;
   h2 {
     font-size: 36px;
     font-weight: lighter;

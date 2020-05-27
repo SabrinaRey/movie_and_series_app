@@ -1,28 +1,30 @@
 import React from "react";
 import useFetch from "../hooks/useFetch";
 import CardsContainer from "./CardsContainer";
+import { useParams } from "react-router-dom";
 
-const MediaCategories = ({ mediaType }) => {
+const MediaCategories = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
+  const params = useParams();
 
   const topRated = useFetch(
-    `https://api.themoviedb.org/3/${mediaType}/top_rated?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/${params.type}/top_rated?api_key=${apiKey}&language=en-US&page=1`
   );
 
   const popular = useFetch(
-    `https://api.themoviedb.org/3/${mediaType}/popular?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/${params.type}/popular?api_key=${apiKey}&language=en-US&page=1`
   );
 
   const upcoming = useFetch(
-    `https://api.themoviedb.org/3/${mediaType}/upcoming?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/${params.type}/upcoming?api_key=${apiKey}&language=en-US&page=1`
   );
 
   const nowPlaying = useFetch(
-    `https://api.themoviedb.org/3/${mediaType}/now_playing?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/${params.type}/now_playing?api_key=${apiKey}&language=en-US&page=1`
   );
 
   const onTheAir = useFetch(
-    `https://api.themoviedb.org/3/${mediaType}/on_the_air?api_key=${apiKey}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/${params.type}/on_the_air?api_key=${apiKey}&language=en-US&page=1`
   );
 
   return (
@@ -31,47 +33,47 @@ const MediaCategories = ({ mediaType }) => {
         <CardsContainer
           data={popular.results}
           title={
-            mediaType === "tv" ? "Series populares" : "Peliculas populares"
+            params.type === "tv" ? "Series populares" : "Peliculas populares"
           }
-          link={`${mediaType}/category/popular`}
-          mediaType={mediaType}
+          link={`${params.type}/category/popular/page/`}
+          mediaType={params.type}
         />
       )}
       {topRated && (
         <CardsContainer
           data={topRated.results}
           title={
-            mediaType === "tv"
+            params.type === "tv"
               ? "Series con mejores críticas"
               : "Peliculas con mejores críticas"
           }
-          link={`${mediaType}/category/topRated`}
-          mediaType={mediaType}
+          link={`${params.type}/category/topRated/page/`}
+          mediaType={params.type}
         />
       )}
-      {upcoming && mediaType === "movie" && (
+      {upcoming && params.type === "movie" && (
         <CardsContainer
           data={upcoming.results}
           title="Peliculas a estrenarse"
-          link={`${mediaType}/category/upcoming`}
-          mediaType={mediaType}
+          link={`${params.type}/category/upcoming/page/`}
+          mediaType={params.type}
         />
       )}
-      {nowPlaying && mediaType === "movie" && (
+      {nowPlaying && params.type === "movie" && (
         <CardsContainer
           data={nowPlaying.results}
           title="Películas en cines"
-          link={`${mediaType}/category/nowPlaying`}
-          mediaType={mediaType}
+          link={`${params.type}/category/nowPlaying/page/`}
+          mediaType={params.type}
         />
       )}
 
-      {onTheAir && mediaType === "tv" && (
+      {onTheAir && params.type === "tv" && (
         <CardsContainer
           data={onTheAir.results}
           title="Series al aire"
-          link={`${mediaType}/category/onTheAir`}
-          mediaType={mediaType}
+          link={`${params.type}/category/onTheAir/page/`}
+          mediaType={params.type}
         />
       )}
     </>

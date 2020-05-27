@@ -61,6 +61,12 @@ const IdInfoComponent = ({ searchedItem }) => {
               : searchedItem.episode_run_time}{" "}
             minutos.
           </p>
+          {params.type === "tv" && (
+            <p>Temporadas: {searchedItem.number_of_seasons}</p>
+          )}
+          {params.type === "tv" && (
+            <p>Episodios: {searchedItem.number_of_episodes}</p>
+          )}
 
           <p>
             {" "}
@@ -78,20 +84,24 @@ const IdInfoComponent = ({ searchedItem }) => {
               })}
           </p>
 
-          <p>
-            {" "}
-            <span>Presupuesto: $</span>
-            {searchedItem.budget}
-          </p>
+          {params.type === "movie" && (
+            <p>
+              {" "}
+              <span>Presupuesto: $</span>
+              {searchedItem.budget}
+            </p>
+          )}
 
-          <p>
-            {" "}
-            <span>Recaudación: $</span>
-            {searchedItem.revenue}
-          </p>
+          {params.type === "movie" && (
+            <p>
+              {" "}
+              <span>Recaudación: $</span>
+              {searchedItem.revenue}
+            </p>
+          )}
+          <IdFooter />
         </NameAndInfoContainer>
       </DescriptionContainer>
-      <IdFooter />
     </>
   );
 };

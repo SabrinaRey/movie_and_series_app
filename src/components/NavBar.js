@@ -7,7 +7,7 @@ import { Video } from "@styled-icons/feather/Video";
 import { Tv } from "@styled-icons/feather/Tv";
 import { Search } from "@styled-icons/feather/Search";
 import useFetch from "../hooks/useFetch";
-import CardInfo from "./CardInfo";
+import SearchResults from "./SearchResults";
 
 export const HomeIcon = styled(Home)`
   color: #dcddde;
@@ -71,7 +71,7 @@ const NavBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push(`/multi/${searchedItem}`);
+    history.push(`/multi/:${searchedItem}`);
     setsearchedItem("");
   };
 
@@ -102,18 +102,7 @@ const NavBar = () => {
         </FormContainer>
       </Navigation>
 
-      {search.results &&
-        search.results.map((element) => (
-          <CardInfo
-            key={element.id}
-            id={element.id}
-            title={
-              element.original_name ? element.original_name : element.title
-            }
-            img={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
-            mediaType={element.media_type}
-          />
-        ))}
+      {search.results && <SearchResults info={search.results} />}
     </>
   );
 };

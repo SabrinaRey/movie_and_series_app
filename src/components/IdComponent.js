@@ -1,17 +1,8 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-  Link,
-} from "react-router-dom";
+import { Switch, Route, useParams, Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import styled from "styled-components";
 import IdInfoComponent from "./IdInfoComponent";
-import CastComponent from "./CastComponent";
-import Similar from "./Similar";
-import Videos from "./Videos";
 
 const MainContainer = styled.div``;
 
@@ -77,21 +68,7 @@ const IdComponent = () => {
 
             <Link to={`/${params.type}/${params.id}/similar`}>SIMILARES</Link>
           </SectionOptionsContainer>
-
-          <Router>
-            <Switch>
-              <Route
-                exact
-                path="/:type/:id/"
-                render={(props) => (
-                  <IdInfoComponent searchedItem={searchedItem} />
-                )}
-              />
-              <Route path="/:type/:id/:cast" component={CastComponent} />
-              <Route path="/:type/:id/:videos" component={Videos} />
-              <Route path="/:type/:id/:similar" component={Similar} />
-            </Switch>
-          </Router>
+          <IdInfoComponent searchedItem={searchedItem} />
         </>
       )}
     </MainContainer>

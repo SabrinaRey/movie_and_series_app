@@ -56,12 +56,14 @@ const IdFooter = () => {
       <a
         href={`https://www.twitter.com/${externalLinks.twitter_id}`}
         target="_blank"
+        rel="noopener noreferrer"
       >
         <TwitterIcon />
       </a>
       <a
         href={`https://www.facebook.com/${externalLinks.facebook_id}`}
         target="_blank"
+        rel="noopener noreferrer"
       >
         {" "}
         <FacebookIcon />
@@ -69,12 +71,14 @@ const IdFooter = () => {
       <a
         href={`https://www.instagram.com/${externalLinks.instagram_id}`}
         target="_blank"
+        rel="noopener noreferrer"
       >
         <InstagramIcon />
       </a>
       <a
         href={`https://www.imdb.com/title/${externalLinks.imdb_id}`}
         target="_blank"
+        rel="noopener noreferrer"
       >
         <ImdbIcon />
       </a>

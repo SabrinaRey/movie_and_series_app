@@ -7,6 +7,7 @@ import styled from "styled-components";
 const SimilarVideosContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 40px 30px 0px 20px;
 `;
 

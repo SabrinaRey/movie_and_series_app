@@ -1,14 +1,15 @@
 import React from "react";
 import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
-import CardInfo from "./CardInfo";
 import styled from "styled-components";
 
 const VideosContainer = styled.div`
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   margin: 40px 30px 0px 20px;
+`;
+
+const ElementsContainer = styled.div`
+  padding: 30px;
 `;
 
 const Videos = () => {
@@ -24,13 +25,15 @@ const Videos = () => {
       {VideosInfo.results &&
         VideosInfo.results.map((element) => {
           return (
-            <CardInfo
-              key={element.id}
-              id={element.id}
-              title={element.name}
-              character={element.character}
-              img={`https://image.tmdb.org/t/p/w500${element.profile_path}`}
-            />
+            <ElementsContainer>
+              <iframe
+                id={element.id}
+                type="text/html"
+                src={`https://www.youtube.com/embed/${element.key}`}
+                title={element.name}
+              />
+              <h4>{element.name}</h4>
+            </ElementsContainer>
           );
         })}
     </VideosContainer>
