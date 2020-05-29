@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import CardInfo from "./CardInfo";
 import styled from "styled-components";
 
-const CastContainer = styled.div`
+const CastContainer = styled.article`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -30,7 +30,7 @@ const CastComponent = () => {
               id={actor.id}
               title={actor.name}
               character={actor.character}
-              img={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+              img={actor.profile_path}
             />
           );
         })}

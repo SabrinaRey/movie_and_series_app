@@ -6,8 +6,6 @@ import { Home } from "@styled-icons/feather/Home";
 import { Video } from "@styled-icons/feather/Video";
 import { Tv } from "@styled-icons/feather/Tv";
 import { Search } from "@styled-icons/feather/Search";
-import useFetch from "../hooks/useFetch";
-import SearchResults from "./SearchResults";
 
 export const HomeIcon = styled(Home)`
   color: #dcddde;
@@ -41,6 +39,8 @@ export const SearchIcon = styled(Search)`
 const Navigation = styled.nav`
   background-color: #141414;
   display: flex;
+  align-items: center;
+  height: 70px;
 `;
 
 const FormContainer = styled.div`
@@ -51,19 +51,16 @@ const FormContainer = styled.div`
     background: transparent;
     border-width: 0px;
     padding: 10px 20px 5px 40px;
+    @media (max-width: 900px) {
+      font-size: 15px;
+    }
   }
 `;
 
 const NavBar = () => {
   const history = useHistory();
 
-  const apiKey = process.env.REACT_APP_API_KEY;
-
   const [searchedItem, setsearchedItem] = useState("");
-
-  const search = useFetch(
-    `https://api.themoviedb.org/3/search/multi?query=${searchedItem}&api_key=${apiKey}&language=es-ES&page=1&include_adult=false`
-  );
 
   const handleChange = (e) => {
     setsearchedItem(e.target.value);
@@ -71,7 +68,7 @@ const NavBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push(`/multi/:${searchedItem}`);
+    history.push(`/multi/${searchedItem}`);
     setsearchedItem("");
   };
 
@@ -101,8 +98,6 @@ const NavBar = () => {
           </form>
         </FormContainer>
       </Navigation>
-
-      {search.results && <SearchResults info={search.results} />}
     </>
   );
 };

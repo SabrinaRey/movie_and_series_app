@@ -6,17 +6,26 @@ import CardInfo from "./CardInfo";
 
 const CardContainerSection = styled.div`
   margin: 30px;
+  @media (max-width: 900px) {
+    margin: 10px;
+  }
 `;
 
 const CardsSection = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 900px) {
+    margin: 20px;
+  }
 `;
 
 const TitleDiv = styled.div`
   h2 {
     font-size: 36px;
     font-weight: lighter;
+    @media (max-width: 900px) {
+      font-size: 24px;
+    }
   }
   a {
     margin-top: 10px;
@@ -34,6 +43,9 @@ export const ArrowIcon = styled(ArrowRight)`
   height: 30px;
   padding: 10px;
   margin-right: 10px;
+  @media (max-width: 900px) {
+    margin-top: 10px;
+  }
 `;
 
 const CardsContainer = ({ data, mediaType, title, link }) => {
@@ -67,7 +79,7 @@ const CardsContainer = ({ data, mediaType, title, link }) => {
                         ? element.original_name
                         : element.title
                     }
-                    img={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
+                    img={element.poster_path || element.backdrop_path}
                     mediaType={mediaType}
                   />
                 );
@@ -81,7 +93,7 @@ const CardsContainer = ({ data, mediaType, title, link }) => {
                         ? element.original_name
                         : element.title
                     }
-                    img={`https://image.tmdb.org/t/p/w500${element.poster_path}`}
+                    img={element.poster_path || element.backdrop_path}
                     mediaType={mediaType}
                   />
                 );

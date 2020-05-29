@@ -1,15 +1,21 @@
 import React from "react";
-import { Switch, Route, useParams, Link } from "react-router-dom";
+import { useParams, Link, Switch, Route } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import styled from "styled-components";
 import IdInfoComponent from "./IdInfoComponent";
+import Similar from "./Similar";
+import Videos from "./Videos";
+import ImageNot from "../assests/unavailable.jfif";
+
+import CastComponent from "./CastComponent";
+
+import Episodes from "./Episodes";
 
 const MainContainer = styled.div``;
 
 const MainImageContainer = styled.div`
   img {
     width: 100%;
-    height: 450px;
   }
 `;
 
@@ -26,6 +32,13 @@ const SectionOptionsContainer = styled.div`
     padding-bottom: 10px;
     margin: 10px;
     transition: all 0.3s ease 0s;
+    :visited {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      font-size: 15px;
+    }
   }
 `;
 
@@ -43,22 +56,22 @@ const IdComponent = () => {
       {searchedItem && (
         <>
           <MainImageContainer>
-            {searchedItem.backdrop_path ? (
+            {searchedItem.backdrop_path || searchedItem.poster_path ? (
               <img
-                src={`https://image.tmdb.org/t/p/original${searchedItem.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/original${
+                  searchedItem.backdrop_path || searchedItem.poster_path
+                }`}
                 alt={searchedItem.title}
               />
             ) : (
-              <img src="" alt="not available" />
+              <img src={ImageNot} alt="not available" />
             )}
           </MainImageContainer>
 
           <SectionOptionsContainer>
-            <Link to={`/${params.type}/${params.id}`}>INFO</Link>
+            <Link to={`/${params.type}/${params.id}/info`}>INFO</Link>
             {params.type === "tv" && (
-              <Link to={`/${params.type}/${params.id}/seasons/`}>
-                EPISODIOS
-              </Link>
+              <Link to={`/${params.type}/${params.id}/seasons`}>EPISODIOS</Link>
             )}
 
             {params.type === "movie" && (
@@ -68,7 +81,20 @@ const IdComponent = () => {
 
             <Link to={`/${params.type}/${params.id}/similar`}>SIMILARES</Link>
           </SectionOptionsContainer>
-          <IdInfoComponent searchedItem={searchedItem} />
+
+          <Switch>
+            <Route
+              exact
+              path="/:type/:id/info"
+              render={(props) => (
+                <IdInfoComponent searchedItem={searchedItem} />
+              )}
+            />
+            <Route exact path="/:type/:id/cast" component={CastComponent} />
+            <Route exact path="/:type/:id/videos" component={Videos} />
+            <Route exact path="/:type/:id/similar" component={Similar} />
+            <Route exact path="/:type/:id/seasons" component={Episodes} />
+          </Switch>
         </>
       )}
     </MainContainer>

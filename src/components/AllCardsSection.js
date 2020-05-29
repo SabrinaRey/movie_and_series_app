@@ -2,6 +2,7 @@ import React from "react";
 import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import CardsContainer from "./CardsContainer";
+import PaginationComponent from "./PaginationComponent";
 
 const AllCardsSection = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -28,17 +29,17 @@ const AllCardsSection = () => {
   if (params && params.type) {
     const allUrls = {
       movie: {
-        trending: `https://api.themoviedb.org/3/trending/${params.type}/week?api_key=${apiKey}`,
-        popular: `https://api.themoviedb.org/3/${params.type}/popular?api_key=${apiKey}&language=en-US&page=1`,
-        topRated: `https://api.themoviedb.org/3/${params.type}/top_rated?api_key=${apiKey}&language=en-US&page=1`,
-        upcoming: `https://api.themoviedb.org/3/${params.type}/upcoming?api_key=${apiKey}&language=en-US&page=1`,
-        nowPlaying: `https://api.themoviedb.org/3/${params.type}/now_playing?api_key=${apiKey}&language=en-US&page=1`,
+        trending: `https://api.themoviedb.org/3/trending/${params.type}/week?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        popular: `https://api.themoviedb.org/3/${params.type}/popular?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        topRated: `https://api.themoviedb.org/3/${params.type}/top_rated?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        upcoming: `https://api.themoviedb.org/3/${params.type}/upcoming?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        nowPlaying: `https://api.themoviedb.org/3/${params.type}/now_playing?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
       },
       tv: {
-        trending: `https://api.themoviedb.org/3/trending/${params.type}/week?api_key=${apiKey}`,
-        popular: `https://api.themoviedb.org/3/${params.type}/popular?api_key=${apiKey}&language=en-US&page=1`,
-        topRated: `https://api.themoviedb.org/3/${params.type}/top_rated?api_key=${apiKey}&language=en-US&page=1`,
-        onTheAir: `https://api.themoviedb.org/3/${params.type}/on_the_air?api_key=${apiKey}&language=en-US&page=1`,
+        trending: `https://api.themoviedb.org/3/trending/${params.type}/week?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        popular: `https://api.themoviedb.org/3/${params.type}/popular?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        topRated: `https://api.themoviedb.org/3/${params.type}/top_rated?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
+        onTheAir: `https://api.themoviedb.org/3/${params.type}/on_the_air?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
       },
     };
     const selectedType = allUrls[params.type];
@@ -49,11 +50,14 @@ const AllCardsSection = () => {
   return (
     <>
       {allTypes && (
-        <CardsContainer
-          data={allTypes.results}
-          title={selectedTitle}
-          mediaType={params.type}
-        />
+        <>
+          <CardsContainer
+            data={allTypes.results}
+            title={selectedTitle}
+            mediaType={params.type}
+          />
+          <PaginationComponent totalPages={allTypes.total_pages} />
+        </>
       )}
     </>
   );

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import styled from "styled-components";
-import CardInfo from "./CardInfo";
 
 const SelectInput = styled.div`
   margin: 10px;
@@ -22,13 +21,20 @@ const SelectInput = styled.div`
     border-style: solid;
     border-color: rgb(220, 221, 222);
     border-image: initial;
+
+    @media (max-width: 900px) {
+      font-size: 12px;
+    }
   }
 `;
 
-const EpisodesContainer = styled.div`
+const EpisodesContainer = styled.article`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    justify-content: space-around;
+  }
 `;
 
 const IndividualEpisode = styled.div`
@@ -40,6 +46,9 @@ const IndividualEpisode = styled.div`
   h3 {
     font-weight: 400;
     font-size: 18px;
+    @media (max-width: 900px) {
+      font-size: 14px;
+    }
     span {
       line-height: 20px;
       margin-top: 0px;
@@ -50,11 +59,14 @@ const IndividualEpisode = styled.div`
   }
   p {
     font-weight: 300;
+
+    @media (max-width: 900px) {
+      font-size: 12px;
+    }
   }
 `;
 
 const Episodes = () => {
-  const history = useHistory();
   const params = useParams();
 
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -64,8 +76,6 @@ const Episodes = () => {
   );
 
   const seasons = itemDetails.seasons;
-
-  console.log(seasons);
 
   const [selectedSeason, setSelectedSeason] = useState(1);
 

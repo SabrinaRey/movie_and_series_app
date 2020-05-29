@@ -5,11 +5,17 @@ import styled from "styled-components";
 
 const VideosContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: 40px 30px 0px 20px;
 `;
 
 const ElementsContainer = styled.div`
   padding: 30px;
+`;
+
+const TItleDiv = styled.div`
+  width: 280px;
+  display: flex;
 `;
 
 const Videos = () => {
@@ -27,12 +33,15 @@ const Videos = () => {
           return (
             <ElementsContainer>
               <iframe
+                key={element.id}
                 id={element.id}
                 type="text/html"
                 src={`https://www.youtube.com/embed/${element.key}`}
                 title={element.name}
               />
-              <h4>{element.name}</h4>
+              <TItleDiv>
+                <h4>{element.name}</h4>
+              </TItleDiv>
             </ElementsContainer>
           );
         })}

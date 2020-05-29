@@ -17,7 +17,7 @@ const HomePage = () => {
         <CardsContainer
           data={trendingMoviesList.results}
           title="Peliculas que son tendencia"
-          link="movie/category/trending/page"
+          link="movie/category/trending/page/1"
           mediaType="movie"
         />
       )}
@@ -25,7 +25,7 @@ const HomePage = () => {
         <CardsContainer
           data={trendingSeriesList.results}
           title="Series que son tendencia"
-          link="tv/category/trending/page"
+          link="tv/category/trending/page/1"
           mediaType="tv"
         />
       )}

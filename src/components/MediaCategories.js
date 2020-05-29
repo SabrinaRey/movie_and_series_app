@@ -35,7 +35,7 @@ const MediaCategories = () => {
           title={
             params.type === "tv" ? "Series populares" : "Peliculas populares"
           }
-          link={`${params.type}/category/popular/page/`}
+          link={`${params.type}/category/popular/page/1`}
           mediaType={params.type}
         />
       )}
@@ -47,7 +47,7 @@ const MediaCategories = () => {
               ? "Series con mejores críticas"
               : "Peliculas con mejores críticas"
           }
-          link={`${params.type}/category/topRated/page/`}
+          link={`${params.type}/category/topRated/page/1`}
           mediaType={params.type}
         />
       )}
@@ -55,7 +55,7 @@ const MediaCategories = () => {
         <CardsContainer
           data={upcoming.results}
           title="Peliculas a estrenarse"
-          link={`${params.type}/category/upcoming/page/`}
+          link={`${params.type}/category/upcoming/page/1`}
           mediaType={params.type}
         />
       )}
@@ -63,7 +63,7 @@ const MediaCategories = () => {
         <CardsContainer
           data={nowPlaying.results}
           title="Películas en cines"
-          link={`${params.type}/category/nowPlaying/page/`}
+          link={`${params.type}/category/nowPlaying/page/1`}
           mediaType={params.type}
         />
       )}
@@ -72,7 +72,7 @@ const MediaCategories = () => {
         <CardsContainer
           data={onTheAir.results}
           title="Series al aire"
-          link={`${params.type}/category/onTheAir/page/`}
+          link={`${params.type}/category/onTheAir/page/:pagenumber`}
           mediaType={params.type}
         />
       )}
