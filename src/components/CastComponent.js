@@ -9,6 +9,10 @@ const CastContainer = styled.article`
   justify-content: center;
   flex-wrap: wrap;
   margin: 40px 30px 0px 20px;
+  @media (max-width: 568px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 const CastComponent = () => {

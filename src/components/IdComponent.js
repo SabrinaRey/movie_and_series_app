@@ -39,6 +39,9 @@ const SectionOptionsContainer = styled.div`
     @media (max-width: 900px) {
       font-size: 15px;
     }
+    @media (max-width: 568px) {
+      font-size: 10px;
+    }
   }
 `;
 

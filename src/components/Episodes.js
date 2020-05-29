@@ -25,6 +25,9 @@ const SelectInput = styled.div`
     @media (max-width: 900px) {
       font-size: 12px;
     }
+    @media (max-width: 568px) {
+      font-size: 8px;
+    }
   }
 `;
 
@@ -49,6 +52,9 @@ const IndividualEpisode = styled.div`
     @media (max-width: 900px) {
       font-size: 14px;
     }
+    @media (max-width: 568px) {
+      font-size: 10px;
+    }
     span {
       line-height: 20px;
       margin-top: 0px;
@@ -62,6 +68,9 @@ const IndividualEpisode = styled.div`
 
     @media (max-width: 900px) {
       font-size: 12px;
+    }
+    @media (max-width: 568px) {
+      font-size: 8px;
     }
   }
 `;

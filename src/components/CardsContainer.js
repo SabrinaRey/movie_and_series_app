@@ -26,6 +26,9 @@ const TitleDiv = styled.div`
     @media (max-width: 900px) {
       font-size: 24px;
     }
+    @media (max-width: 568px) {
+      font-size: 22px;
+    }
   }
   a {
     margin-top: 10px;

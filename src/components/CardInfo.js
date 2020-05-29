@@ -22,10 +22,17 @@ const Container = styled.div`
     @media (max-width: 900px) {
       width: 200px;
     }
+
+    @media (max-width: 568px) {
+      width: 100px;
+    }
   }
 
   h5 {
     font-size: 18px;
+    @media (max-width: 568px) {
+      font-size: 10px;
+    }
   }
 `;
 
@@ -41,6 +48,9 @@ const TitleDiv = styled.div`
     font-size: 24px;
     @media (max-width: 900px) {
       font-size: 20px;
+      @media (max-width: 568px) {
+        font-size: 12px;
+      }
     }
   }
 `;

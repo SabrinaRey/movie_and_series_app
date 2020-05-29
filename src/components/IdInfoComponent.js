@@ -33,12 +33,19 @@ const NameAndInfoContainer = styled.div`
     @media (max-width: 900px) {
       font-size: 24px;
     }
+    @media (max-width: 568px) {
+      font-size: 15px;
+    }
   }
   .MuiRating-readOnly {
     width: 20px;
     height: 20px;
     margin-right: 3px;
     color: rgb(33, 150, 243);
+    @media (max-width: 568px) {
+      width: 10px;
+      height: 10px;
+    }
   }
 
   p {
@@ -47,6 +54,9 @@ const NameAndInfoContainer = styled.div`
     margin-top: 20px;
     @media (max-width: 900px) {
       font-size: 12px;
+    }
+    @media (max-width: 568px) {
+      font-size: 8px;
     }
   }
   a {

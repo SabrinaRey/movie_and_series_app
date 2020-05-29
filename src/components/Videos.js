@@ -11,11 +11,24 @@ const VideosContainer = styled.div`
 
 const ElementsContainer = styled.div`
   padding: 30px;
+
+  @media (max-width: 568px) {
+    padding: 5px;
+    iframe {
+      width: 50%;
+    }
+  }
 `;
 
 const TItleDiv = styled.div`
   width: 280px;
   display: flex;
+  h4 {
+    @media (max-width: 568px) {
+      font-size: 10px;
+      width: 150px;
+    }
+  }
 `;
 
 const Videos = () => {

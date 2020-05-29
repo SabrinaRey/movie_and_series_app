@@ -13,6 +13,10 @@ export const HomeIcon = styled(Home)`
   height: 30px;
   padding: 10px;
   margin-right: 10px;
+  @media (max-width: 568px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 export const VideoIcon = styled(Video)`
   color: #dcddde;
@@ -20,6 +24,10 @@ export const VideoIcon = styled(Video)`
   height: 30px;
   padding: 10px;
   margin-right: 10px;
+  @media (max-width: 568px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 export const TvIcon = styled(Tv)`
   color: #dcddde;
@@ -27,6 +35,10 @@ export const TvIcon = styled(Tv)`
   height: 30px;
   padding: 10px;
   margin-right: 10px;
+  @media (max-width: 568px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 export const SearchIcon = styled(Search)`
   color: #dcddde;
@@ -41,6 +53,10 @@ const Navigation = styled.nav`
   display: flex;
   align-items: center;
   height: 70px;
+
+  @media (max-width: 568px) {
+    width: 100%;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -51,8 +67,13 @@ const FormContainer = styled.div`
     background: transparent;
     border-width: 0px;
     padding: 10px 20px 5px 40px;
-    @media (max-width: 900px) {
-      font-size: 15px;
+    @media (max-width: 1024px) {
+      margin-top: 15px;
+    }
+    @media (max-width: 568px) {
+      width: 80%;
+      margin-bottom: 15px;
+      font-size: 12px;
     }
   }
 `;
@@ -85,10 +106,9 @@ const NavBar = () => {
           {" "}
           <TvIcon />
         </Link>
-
+        <SearchIcon />
         <FormContainer>
           <form onSubmit={handleSubmit}>
-            <SearchIcon />
             <input
               type="text"
               value={searchedItem}
