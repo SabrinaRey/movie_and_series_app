@@ -27,6 +27,10 @@ const MediaCategories = () => {
     `https://api.themoviedb.org/3/${params.type}/on_the_air?api_key=${apiKey}&language=en-US&page=1`
   );
 
+  // Tal como estan hechos tus fetch, estas garantizando que algunos van a fallar dependiendo de si estas en /movies o /tv
+  // Es preferible que no se hagan, en lugar de hacerse y fallar (y poner un error en la consola). 
+  // Como un hook no se puede llamar condicionalmente, yo agregaria la logica dentro del mismo hook. 
+  // Consultame si esto es algo que te interesa. 
   return (
     <>
       {popular && (

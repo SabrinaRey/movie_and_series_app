@@ -89,6 +89,7 @@ const IdComponent = () => {
             <Route
               exact
               path="/:type/:id/info"
+              // No usamos props aqui asi que no deberian estar declaradas
               render={(props) => (
                 <IdInfoComponent searchedItem={searchedItem} />
               )}

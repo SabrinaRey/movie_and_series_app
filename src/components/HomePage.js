@@ -11,6 +11,10 @@ const HomePage = () => {
     `https://api.themoviedb.org/3/trending/tv/week?api_key=${apiKey}`
   );
 
+  // hay un poco de espanglish en los nombres de tus variables. ("trendingSeriesList")
+  // considera usar todas en español o todas en ingles (lo habitual es 100% ingles)
+  // esto es importante cuando trabajamos en equipo, que todos usen la misma convención para evitar confusiones. 
+
   return (
     <main>
       {trendingMoviesList && (

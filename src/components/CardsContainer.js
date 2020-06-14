@@ -52,6 +52,10 @@ export const ArrowIcon = styled(ArrowRight)`
 `;
 
 const CardsContainer = ({ data, mediaType, title, link }) => {
+
+  // Aca usamos un if else para una sola cosa: pasarle o no un link a la tarjeta. Pero
+  // por lo que veo la tarjeta no usa la prop link, asi que no entiendo por que esto esta aca. 
+  // En todo caso, preferiria no hacer el if else y simplemente poner en link: link={link ? link : null}
   return (
     <CardContainerSection>
       {data && (
@@ -61,6 +65,7 @@ const CardsContainer = ({ data, mediaType, title, link }) => {
               <Link to={`${link}`}>
                 <ContainerTitle>
                   <h2>{title}</h2>
+                  {/* Esta flecha no esta bien centrada, considera ver eso */}
                   <ArrowIcon />
                 </ContainerTitle>
               </Link>

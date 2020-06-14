@@ -27,6 +27,11 @@ const AllCardsSection = () => {
   const selectedTitle = allTitles[params.type][params.section];
 
   if (params && params.type) {
+
+    // esre objeto es claro, pero dificil de leer. considera poner en variables la url para que se haga mas legible
+    // por ejemplo
+    // API_BASE + params.type + /week? + API_KEY + LANGUAGE + PAGE
+
     const allUrls = {
       movie: {
         trending: `https://api.themoviedb.org/3/trending/${params.type}/week?api_key=${apiKey}&language=es-ES&page=${params.pagenumber}`,
