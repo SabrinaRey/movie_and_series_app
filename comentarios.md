@@ -1,3 +1,5 @@
+Sabri, tu trabajo es fantastico. Tengo pocas palabras porque hay poco para decir con un trabajo tan bueno, lleno de detalles y con codigo solido y bien hecho. Me alegra muchisimo ver como creciste a lo largo del curso, tus ganas, tu actitud y tu talento que siempre resaltaron. 
+
 - Solo tenes un warning en la consola. Eso nunca es casual, revela que le prestaste atencion a la consola y trataste de dejar el codigo lo mas prolijo posible. Ese tipo de detalles, a los que me tenes acostumbrada, te distinguen y resaltan tu trabajo siempre. 
 
 - Tu pagina a nivel visual es correctisima, cumplis muy bien los requerimientos del diseño y lo haces con un codigo prolijo y elegante. Tu html es muy semántico, tu estilado no tiene cosas repetidas o innecesarias, en definitiva, maquetas mucho mejor de lo que pensás. 
