@@ -1,4 +1,5 @@
 import React from "react";
+// me gusta mucho este archivo de estilos globales, organiza bien el codigo y lo usaste muy bien. 
 import GlobalStyle from "./components/styles/GlobalStyle";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";

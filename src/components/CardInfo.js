@@ -65,7 +65,9 @@ const CardInfo = ({ id, img, mediaType, title, character, overview }) => {
           ) : (
             <img src={ImageNot} alt="not available" />
           )}
-
+            {/* la imagen default no se ve tan bien, considera estilarla para que sea igual que las tarjetas (mas alta que ancha) */}
+{/* considera un mejor nombre que TitleDiv: nunca es bueno identificar un elemento por su tag de html. 
+"TitleContainer" o "InfoContainer" me parecen mejores. */}
           <TitleDiv>
             <h4>{title}</h4>
             {character && <h5>{character}</h5>}

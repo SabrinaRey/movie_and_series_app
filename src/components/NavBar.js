@@ -7,6 +7,9 @@ import { Video } from "@styled-icons/feather/Video";
 import { Tv } from "@styled-icons/feather/Tv";
 import { Search } from "@styled-icons/feather/Search";
 
+// El codigo de los iconos esta muy repetitivo. 
+// Yo hubiera privilegiado un componente que los rodeara con todo el estilo, y cada icono dentro de ese componente. 
+
 export const HomeIcon = styled(Home)`
   color: #dcddde;
   width: 30px;
@@ -87,6 +90,7 @@ const NavBar = () => {
     setsearchedItem(e.target.value);
   };
 
+  // excelente como esta resuelto este search 
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push(`/multi/${searchedItem}`);
@@ -106,6 +110,8 @@ const NavBar = () => {
           {" "}
           <TvIcon />
         </Link>
+        {/* Algunos usuarios prefieren usar el mouse y estan acostumbrados a que la lupa sea el equivalente de hacer 
+        submit en un formulario: considerá agregar un onclick a este icono que ejecute handleSubmit() */}
         <SearchIcon />
         <FormContainer>
           <form onSubmit={handleSubmit}>

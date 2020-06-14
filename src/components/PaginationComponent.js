@@ -24,6 +24,7 @@ const PaginationComponent = ({ totalPages }) => {
     history.push(`${page}`);
   };
 
+  // muy bien resuelta la paginacion aqui y buen uso de material ui
   return (
     <PageContainer>
       <Pagination
